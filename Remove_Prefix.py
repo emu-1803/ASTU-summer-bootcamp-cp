@@ -8,6 +8,7 @@ for _ in range(int(input())):
         if a[i] in visited:
             ans=i+1
             break
-        visited.add(a[i])
+        else:
+            visited.add(a[i])
 
     print(ans)
