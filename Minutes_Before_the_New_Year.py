@@ -1,0 +1,6 @@
+for _ in range(int(input())):
+    h,m = map(int,input().split())
+    
+    h*=60
+    n=24*60-(h+m)
+    print(n)
