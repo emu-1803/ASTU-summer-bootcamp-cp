@@ -51,4 +51,4 @@ for i in range(t):
         elif words[i] == 2:
             score3 += 1
 
-    print(score1, score2, score3
+    print(score1, score2, score3)
