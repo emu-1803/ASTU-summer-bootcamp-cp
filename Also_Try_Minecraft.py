@@ -1,20 +1,20 @@
-n,m=map(int,input().split())
-a=list(map(int,input().split()))
+n, m = map(int, input().split())
+a = list(map(int, input().split()))
+
+forward = [0] * n
+for i in range(1, n):
+    forward[i] = forward[i - 1] + max(0, a[i - 1] - a[i])
+
+backward = [0] * n
+for i in range(n - 2, -1, -1):
+    backward[i] = backward[i + 1] + max(0, a[i + 1] - a[i])
 
 for _ in range(m):
-    s,t= map(int,input().split())
-    count=0
-    if s > t :
-        for i in range(s-1 , t-1 ,-1):
-            if a[i-1] < a[i]:
-                count += a[i] - a[i-1]
-        print (count )
+    s, t = map(int, input().split())
+    s -= 1
+    t -= 1
+
+    if s < t:
+        print(forward[t] - forward[s])
     else:
-        if t-s==1:
-            print(a[s-1]-a[s])
-        else:
-            for i in range(s , t):
-                if a[i] < a[i-1]:
-                    count += a[i-1] - a[i]
-                
-            print (count )
+        print(backward[t] - backward[s])
