@@ -4,15 +4,15 @@ class Solution:
         heaters.sort()
 
         last_heater_index = len(heaters) - 1
-        left_heater, right_heater = 0, 0
+        l_h, r_h = 0, 0
         max_radius = 0
 
         for house in houses:
-            while right_heater < last_heater_index and house > heaters[right_heater]:
-                left_heater, right_heater = right_heater, right_heater + 1
+            while r_h < last_heater_index and house > heaters[r_h]:
+                l_h, r_h = r_h, r_h + 1
             
-            distance_left = abs(heaters[left_heater] - house)
-            distance_right = abs(heaters[right_heater] - house)
+            distance_left = abs(heaters[l_h] - house)
+            distance_right = abs(heaters[r_h] - house)
             max_radius = max(max_radius, min(distance_left, distance_right))
         
         return max_radius
