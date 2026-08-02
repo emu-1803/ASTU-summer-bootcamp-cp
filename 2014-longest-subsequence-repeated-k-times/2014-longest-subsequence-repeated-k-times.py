@@ -1,13 +1,5 @@
 class Solution:
     def longestSubsequenceRepeatedK(self, s: str, k: int) -> str:
-        # char=list(s)
-        # visited=[]
-        # from collections import Counter
-        # ans=Counter(char)
-        # for key,values in ans.items():
-        #     if values >=k:
-        #         visited.append(key)
-        # return("".join (visited))
         counts = Counter(s)
         valid_chars = sorted([char for char in counts if counts[char] >= k])
         def isSubsequence(sub: str) -> bool:
